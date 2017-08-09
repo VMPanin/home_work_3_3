@@ -49,8 +49,9 @@ def save_translations():
     if not os.path.exists('result_of_translation'):
         os.makedirs('result_of_translation')
     current_dir = get_current_dir()
+    lang_for_translation = 'ru'
     for file in get_files():
-        lang = file.lower()[:-4] + '-ru'
+        lang = file.lower()[:-4] + '-' + lang_for_translation
         with open(os.path.join(current_dir, file), 'rb') as f:
             data = f.read()
             result = chardet.detect(data)
